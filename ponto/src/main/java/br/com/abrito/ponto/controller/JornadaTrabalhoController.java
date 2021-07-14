@@ -13,32 +13,32 @@ import java.util.NoSuchElementException;
 @RequestMapping("/jornada")
 public class JornadaTrabalhoController {
     @Autowired
-    JornadaService jornadaService;
+    JornadaService service;
 
     @PostMapping
-    public JornadaTrabalho createJornada(@RequestBody JornadaTrabalho jornadaTrabalho){
-        return jornadaService.saveJornada(jornadaTrabalho);
+    public JornadaTrabalho create(@RequestBody JornadaTrabalho entity){
+        return service.save(entity);
     }
 
     @GetMapping
-    public List<JornadaTrabalho> getJornadaList(){
-        return jornadaService.findAll();
+    public List<JornadaTrabalho> getList(){
+        return service.findAll();
     }
 
-    @GetMapping("/{idJornada}")
-    public ResponseEntity<JornadaTrabalho>  getJornadaByID(@PathVariable("idJornada") Long idJornada) throws Exception {
-        return  ResponseEntity.ok(jornadaService.getById(idJornada).orElseThrow(() -> new NoSuchElementException("Not found!")));
+    @GetMapping("/{id}")
+    public ResponseEntity<JornadaTrabalho>  getByID(@PathVariable("id") Long id) throws Exception {
+        return  ResponseEntity.ok(service.getById(id).orElseThrow(() -> new NoSuchElementException("Not found!")));
     }
 
     @PutMapping
-    public JornadaTrabalho updateJornada(@RequestBody JornadaTrabalho jornadaTrabalho){
-        return jornadaService.updateJornada(jornadaTrabalho);
+    public JornadaTrabalho update(@RequestBody JornadaTrabalho entity){
+        return service.update(entity);
     }
 
-    @DeleteMapping("/{idJornada}")
-    public ResponseEntity deleteByID(@PathVariable("idJornada") Long idJornada) throws Exception {
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteByID(@PathVariable("id") Long id) throws Exception {
        try {
-           jornadaService.deleteJornada(idJornada);
+           service.delete(id);
        }catch (Exception e){
            System.out.println(e.getMessage());
        }

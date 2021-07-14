@@ -1,7 +1,7 @@
 package br.com.abrito.ponto.service;
 
-import br.com.abrito.ponto.model.Empresa;
-import br.com.abrito.ponto.repository.EmpresaRepository;
+import br.com.abrito.ponto.model.NivelAcesso;
+import br.com.abrito.ponto.repository.NivelAcessoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,29 +9,28 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmpresaService {
+public class NivelAcessoService {
 
-
-    EmpresaRepository repository;
+    NivelAcessoRepository repository;
 
     @Autowired
-    public EmpresaService(EmpresaRepository repository) {
+    public NivelAcessoService(NivelAcessoRepository repository) {
         this.repository = repository;
     }
 
-    public Empresa save(Empresa entity){
+    public NivelAcesso save(NivelAcesso entity){
        return repository.save(entity);
     }
 
-    public List<Empresa> findAll() {
+    public List<NivelAcesso> findAll() {
        return repository.findAll();
     }
 
-    public Optional<Empresa> getById(Long id) {
+    public Optional<NivelAcesso> getById(Long id) {
         return repository.findById(id);
     }
 
-    public Empresa update(Empresa entity){
+    public NivelAcesso update(NivelAcesso entity){
         return repository.save(entity);
     }
 

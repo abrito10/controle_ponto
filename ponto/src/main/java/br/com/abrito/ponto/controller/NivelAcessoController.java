@@ -1,7 +1,7 @@
 package br.com.abrito.ponto.controller;
 
-import br.com.abrito.ponto.model.CategoriaUsuario;
-import br.com.abrito.ponto.service.CategoriaUsuarioService;
+import br.com.abrito.ponto.model.NivelAcesso;
+import br.com.abrito.ponto.service.NivelAcessoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,28 +10,28 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/categoriaUsuario")
-public class CategoriaUsuarioController {
+@RequestMapping("/nivelAcesso")
+public class NivelAcessoController {
     @Autowired
-    CategoriaUsuarioService service;
+    NivelAcessoService service;
 
     @PostMapping
-    public CategoriaUsuario create(@RequestBody CategoriaUsuario entity){
+    public NivelAcesso create(@RequestBody NivelAcesso entity){
         return service.save(entity);
     }
 
     @GetMapping
-    public List<CategoriaUsuario> getAllList(){
+    public List<NivelAcesso> getAllList(){
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CategoriaUsuario>  getByID(@PathVariable("id") Long id) throws Exception {
+    public ResponseEntity<NivelAcesso>  getByID(@PathVariable("id") Long id) throws Exception {
         return  ResponseEntity.ok(service.getById(id).orElseThrow(() -> new NoSuchElementException("Not found!")));
     }
 
     @PutMapping
-    public CategoriaUsuario update(@RequestBody CategoriaUsuario entity){
+    public NivelAcesso update(@RequestBody NivelAcesso entity){
         return service.update(entity);
     }
 
@@ -42,6 +42,6 @@ public class CategoriaUsuarioController {
        }catch (Exception e){
            System.out.println(e.getMessage());
        }
-        return (ResponseEntity<CategoriaUsuario>) ResponseEntity.ok();
+        return (ResponseEntity<NivelAcesso>) ResponseEntity.ok();
     }
 }

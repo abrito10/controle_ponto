@@ -12,30 +12,30 @@ import java.util.Optional;
 public class JornadaService {
 
 
-    JornadaRepository jornadaRepository;
+    JornadaRepository repository;
 
     @Autowired
-    public JornadaService(JornadaRepository jornadaRepository) {
-        this.jornadaRepository = jornadaRepository;
+    public JornadaService(JornadaRepository repository) {
+        this.repository = repository;
     }
 
-    public JornadaTrabalho saveJornada(JornadaTrabalho jornadaTrabalho){
-       return jornadaRepository.save(jornadaTrabalho);
+    public JornadaTrabalho save(JornadaTrabalho entity){
+       return repository.save(entity);
     }
 
     public List<JornadaTrabalho> findAll() {
-       return   jornadaRepository.findAll();
+       return repository.findAll();
     }
 
-    public Optional<JornadaTrabalho> getById(Long idJornada) {
-        return jornadaRepository.findById(idJornada);
+    public Optional<JornadaTrabalho> getById(Long id) {
+        return repository.findById(id);
     }
 
-    public JornadaTrabalho updateJornada(JornadaTrabalho jornadaTrabalho){
-        return jornadaRepository.save(jornadaTrabalho);
+    public JornadaTrabalho update(JornadaTrabalho entity){
+        return repository.save(entity);
     }
 
-    public void deleteJornada(Long idJornada) {
-        jornadaRepository.deleteById(idJornada);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }

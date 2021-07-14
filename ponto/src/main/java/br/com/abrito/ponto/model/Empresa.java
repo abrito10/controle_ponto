@@ -19,7 +19,6 @@ import javax.persistence.Id;
 public class Empresa {
     @Id
     @GeneratedValue
-
     private Long id;
     private String descricao;
     private String cnpj;

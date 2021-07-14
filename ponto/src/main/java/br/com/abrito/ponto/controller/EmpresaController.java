@@ -13,32 +13,32 @@ import java.util.NoSuchElementException;
 @RequestMapping("/empresa")
 public class EmpresaController {
     @Autowired
-    EmpresaService empresaService;
+    EmpresaService service;
 
     @PostMapping
-    public Empresa createEmpresa(@RequestBody Empresa empresa){
-        return empresaService.save(empresa);
+    public Empresa createEmpresa(@RequestBody Empresa entity){
+        return service.save(entity);
     }
 
     @GetMapping
-    public List<Empresa> getEmpresaList(){
-        return empresaService.findAll();
+    public List<Empresa> getList(){
+        return service.findAll();
     }
 
-    @GetMapping("/{idEmpresa}")
-    public ResponseEntity<Empresa>  getEmpresaByID(@PathVariable("idEmpresa") Long idEmpresa) throws Exception {
-        return  ResponseEntity.ok(empresaService.getById(idEmpresa).orElseThrow(() -> new NoSuchElementException("Not found!")));
+    @GetMapping("/{id}")
+    public ResponseEntity<Empresa>  getByID(@PathVariable("id") Long id) throws Exception {
+        return  ResponseEntity.ok(service.getById(id).orElseThrow(() -> new NoSuchElementException("Not found!")));
     }
 
     @PutMapping
-    public Empresa updateEmpresa(@RequestBody Empresa empresa){
-        return empresaService.update(empresa);
+    public Empresa update(@RequestBody Empresa entity){
+        return service.update(entity);
     }
 
-    @DeleteMapping("/{idEmpresa}")
-    public ResponseEntity deleteByID(@PathVariable("idEmpresa") Long idEmpresa) throws Exception {
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteByID(@PathVariable("id") Long id) throws Exception {
        try {
-           empresaService.delete(idEmpresa);
+           service.delete(id);
        }catch (Exception e){
            System.out.println(e.getMessage());
        }
