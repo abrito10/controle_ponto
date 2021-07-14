@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @Builder
 @Entity
-public class Movimentacao {
 
+public class Movimentacao {
         @AllArgsConstructor
         @NoArgsConstructor
         @EqualsAndHashCode
@@ -24,6 +24,7 @@ public class Movimentacao {
             private long idMovimento;
             private long idUsuario;
         }
+
         @Id
         @EmbeddedId
         private MovimentacaoId movimentacaoId;

@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 @EqualsAndHashCode
 @Builder
 @Entity
+
 public class Localidade {
     @Id
     private  long id;

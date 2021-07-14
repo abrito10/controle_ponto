@@ -14,6 +14,7 @@ import javax.persistence.Id;
 @Builder
 @Entity
 @Audited
+
 public class CategoriaUsuario {
     @Id
     private long id;

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 @EqualsAndHashCode
 @Builder
 @Entity
+
 public class TipoData {
     @Id
     private long id;

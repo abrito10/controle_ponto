@@ -16,9 +16,8 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @Builder
 @Entity
+
 public class BancoHoras {
-
-
     @EqualsAndHashCode
     @Embeddable
     @Getter
