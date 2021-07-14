@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Getter
@@ -17,6 +18,7 @@ import javax.persistence.Id;
 
 public class CategoriaUsuario {
     @Id
+    @GeneratedValue
     private long id;
-    private String desscricao;
+    private String descricao;
 }
